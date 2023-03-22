@@ -1,0 +1,19 @@
+services:
+  asl:
+    # you can change this to whatever you want.
+    container_name: asl
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+      shm_size: '100gb'
+    shm_size: '100gb'
+    volumes:
+      - "./:/ASL"
+    tty: true
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [ gpu ]
