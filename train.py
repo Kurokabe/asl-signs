@@ -2,8 +2,8 @@ import torch
 from pytorch_lightning.callbacks import ModelCheckpoint
 from pytorch_lightning.cli import LightningCLI
 
-from data import SignDataModule
-from vqvae import SignModel
+from src.data.datamodule import SignDataModule
+from src.model.baseline import SignModel
 
 # from torchinfo import summary
 

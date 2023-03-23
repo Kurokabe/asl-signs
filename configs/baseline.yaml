@@ -1,0 +1,25 @@
+seed_everything: true
+trainer:
+  devices:
+  - 0
+  - 1
+  accumulate_grad_batches: 1
+  accelerator: gpu
+  precision: 32
+  gradient_clip_val: 1.0
+  strategy: ddp
+  max_epochs: -1
+model:
+  input_shape: 264
+  hidden_units: 
+  - 128
+  - 64
+  - 32
+  max_sequence_length: 48
+data:
+  max_sequence_length: 48
+  normalize: False
+  substract: False
+  batch_size: 256
+  num_workers: 8
+  prefetch_factor: 32
